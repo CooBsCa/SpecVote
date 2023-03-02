@@ -14,19 +14,37 @@
          return endVotePeriod;
       }
 
-      public String WinnerIs(List<(String,int)> _applications, int voters)
+      public List<(String,int)> WinnerIs(List<(String,int)> applications, int voters)
       {
-         String winner = String.Empty;
+         (String,int) winner = ("",0);
          int limit = voters / 2;
-         _applications.ForEach(x =>
+         (String,int) looser = applications[0];
+         applications.ForEach(x =>
+         {
+            if (x.Item2 < looser.Item2)
+               looser = x;
+         });
+
+         applications.ForEach(x =>
          {
             if (x.Item2 >= limit)
             {
-               winner = x.Item1;
+               winner = x;
             }
          });
+         
 
-         return winner;
+         if (winner.Equals(("", 0)))
+         {
+            applications.Remove(looser);
+         }
+         else
+         {
+            applications.Clear();
+            applications.Add(winner);
+         }
+
+         return applications;
       }
    }
 }

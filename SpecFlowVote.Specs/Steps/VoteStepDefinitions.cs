@@ -16,7 +16,7 @@ namespace SpecFlowVote.Specs.Steps
         
         private bool _votesCheck;
 
-        private String winnerIs;
+        private List<(String,int)> winnerIs;
 
         public VoteStepDefinitions()
         {
@@ -80,13 +80,13 @@ namespace SpecFlowVote.Specs.Steps
         [Then("the candidate wins at the first round")]
         public void ThenCandidateWins()
         {
-            winnerIs.Should().NotBe(String.Empty);
+            winnerIs.Should().OnlyHaveUniqueItems();
         }
         
         [Then("there is a second round")]
         public void ThenThereIsSecondRound()
         {
-            winnerIs.Should().Be(String.Empty);
+            winnerIs.Should().HaveCount(2);
         }
     }
 }
