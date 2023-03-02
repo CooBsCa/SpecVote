@@ -1,0 +1,12 @@
+/Users/bastos/Documents/Code/BDD/SpecVote/SpecFlowVote/bin/Debug/net6.0/SpecFlowVote.deps.json
+/Users/bastos/Documents/Code/BDD/SpecVote/SpecFlowVote/bin/Debug/net6.0/SpecFlowVote.dll
+/Users/bastos/Documents/Code/BDD/SpecVote/SpecFlowVote/bin/Debug/net6.0/SpecFlowVote.pdb
+/Users/bastos/Documents/Code/BDD/SpecVote/SpecFlowVote/obj/Debug/net6.0/SpecFlowVote.csproj.AssemblyReference.cache
+/Users/bastos/Documents/Code/BDD/SpecVote/SpecFlowVote/obj/Debug/net6.0/SpecFlowVote.GeneratedMSBuildEditorConfig.editorconfig
+/Users/bastos/Documents/Code/BDD/SpecVote/SpecFlowVote/obj/Debug/net6.0/SpecFlowVote.AssemblyInfoInputs.cache
+/Users/bastos/Documents/Code/BDD/SpecVote/SpecFlowVote/obj/Debug/net6.0/SpecFlowVote.AssemblyInfo.cs
+/Users/bastos/Documents/Code/BDD/SpecVote/SpecFlowVote/obj/Debug/net6.0/SpecFlowVote.csproj.CoreCompileInputs.cache
+/Users/bastos/Documents/Code/BDD/SpecVote/SpecFlowVote/obj/Debug/net6.0/SpecFlowVote.dll
+/Users/bastos/Documents/Code/BDD/SpecVote/SpecFlowVote/obj/Debug/net6.0/refint/SpecFlowVote.dll
+/Users/bastos/Documents/Code/BDD/SpecVote/SpecFlowVote/obj/Debug/net6.0/SpecFlowVote.pdb
+/Users/bastos/Documents/Code/BDD/SpecVote/SpecFlowVote/obj/Debug/net6.0/ref/SpecFlowVote.dll
