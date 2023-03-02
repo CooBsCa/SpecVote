@@ -14,36 +14,60 @@
          return endVotePeriod;
       }
 
-      public List<(String,int)> WinnerIs(List<(String,int)> applications, int voters)
+      public List<(String,int)> WinnerIs(List<(String,int)> applications, int voters, bool secondRound)
       {
          (String,int) winner = ("",0);
          int limit = voters / 2;
          (String,int) looser = applications[0];
-         applications.ForEach(x =>
-         {
-            if (x.Item2 < looser.Item2)
-               looser = x;
-         });
-
-         applications.ForEach(x =>
-         {
-            if (x.Item2 >= limit)
-            {
-               winner = x;
-            }
-         });
+         (String, int) candidateA;
+         (String, int) candidateB;
          
-
-         if (winner.Equals(("", 0)))
+         if (secondRound.Equals(false))
          {
-            applications.Remove(looser);
+            applications.ForEach(x =>
+            {
+               if (x.Item2 < looser.Item2)
+                  looser = x;
+            });
+
+            applications.ForEach(x =>
+            {
+               if (x.Item2 >= limit)
+               {
+                  winner = x;
+               }
+            });
+
+
+            if (winner.Equals(("", 0)))
+            {
+               applications.Remove(looser);
+            }
+            else
+            {
+               applications.Clear();
+               applications.Add(winner);
+            }
+
+            return applications;
          }
-         else
+         
+         candidateA = applications[0];
+         candidateB = applications[1];
+         applications.Clear();
+         if (candidateA.Item2 > candidateB.Item2)
          {
-            applications.Clear();
-            applications.Add(winner);
+            applications.Add(candidateA);
+            return applications;
+         }
+         if(candidateA.Item2 == candidateB.Item2)
+         {
+            applications.Add(candidateA);
+            applications.Add(candidateB);
+            return applications;
          }
 
+         applications.Add(candidateB);
          return applications;
       }
    }

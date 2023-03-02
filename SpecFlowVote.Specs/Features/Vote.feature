@@ -43,8 +43,61 @@ Scenario: second round
 	  | votes |
 	  | 11    |
 	  | 10    |
-	  | 9    | 
+	  | 9     | 
    	And we have 30 voters
    	When any candidate obtains more than 50% of the votes
    	Then there is a second round
-	
+   	
+Scenario: 2 round max
+	Given following candidates
+	  | candidates |
+	  |	Charlie    |
+	  |	Yoan       |
+	  |	Carla      |
+	And following votes
+	  | votes |
+	  | 11    |
+	  | 10    |
+	  | 9     | 
+   And we have 30 voters
+   When All voters have voted
+   When the first round is passed we pass to the round 2
+   Given following candidates
+     | candidates |
+     |	Charlie   |
+     |	Yoan      |
+	And following votes
+	  | votes |
+	  | 14    |
+	  | 16    |
+   And we have 30 voters
+   When All voters have voted
+   When we count the final score
+   Then the candidate with more votes win
+   
+Scenario: Equality in round 2
+	Given following candidates
+	  | candidates |
+	  |	Lucien    |
+	  |	Yoyo       |
+	  |	Carla      |
+	And following votes
+	  | votes |
+	  | 11    |
+	  | 10    |
+	  | 9     | 
+   And we have 30 voters
+   When All voters have voted
+   When the first round is passed we pass to the round 2
+   Given following candidates
+     | candidates |
+     |	Lucien   |
+     |	Yoyo      |
+   And following votes
+	  | votes |
+	  | 15    |
+	  | 15    |
+   And we have 30 voters
+   When All voters have voted
+   When we count the final score
+   Then there is no winner if equality in votes
