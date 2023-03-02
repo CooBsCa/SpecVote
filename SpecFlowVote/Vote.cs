@@ -14,7 +14,7 @@
          return endVotePeriod;
       }
 
-      public bool MoreThan50(List<(String,int)> _applications, int voters)
+      public String WinnerIs(List<(String,int)> _applications, int voters)
       {
          String winner = String.Empty;
          int limit = voters / 2;
@@ -26,7 +26,7 @@
             }
          });
 
-         return !winner.Equals(String.Empty);
+         return winner;
       }
    }
 }

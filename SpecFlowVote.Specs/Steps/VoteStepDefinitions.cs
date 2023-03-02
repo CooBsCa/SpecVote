@@ -16,7 +16,7 @@ namespace SpecFlowVote.Specs.Steps
         
         private bool _votesCheck;
 
-        private bool _moreThan50;
+        private String winnerIs;
 
         public VoteStepDefinitions()
         {
@@ -61,34 +61,32 @@ namespace SpecFlowVote.Specs.Steps
         public void WhenObtainMoreThan50()
         {
             Vote vote = new Vote();
-            _moreThan50 = vote.MoreThan50(_applications, _voters);
+            winnerIs = vote.WinnerIs(_applications, _voters);
         }
 
         [When("any candidate obtains more than 50% of the votes")]
         public void WhenNobodyObtainMoreThan50()
         {
             Vote vote = new Vote();
-            _moreThan50 = vote.MoreThan50(_applications, _voters);
+            winnerIs = vote.WinnerIs(_applications, _voters);
         }
 
         [Then("the vote is closed")]
         public void ThenTheResultShouldBe()
         {
             _votesCheck.Should().Be(true);
-            _applications.ForEach(x => { Console.WriteLine(x.Item1 + " " + x.Item2); });
-            
         }
 
-        [Then("the candidate wins in the first round")]
+        [Then("the candidate wins at the first round")]
         public void ThenCandidateWins()
         {
-            _moreThan50.Should().Be(true);
+            winnerIs.Should().NotBe(String.Empty);
         }
         
         [Then("there is a second round")]
         public void ThenThereIsSecondRound()
         {
-            _moreThan50.Should().Be(false);
+            winnerIs.Should().Be(String.Empty);
         }
     }
 }

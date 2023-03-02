@@ -18,7 +18,7 @@ Scenario: Vote validation
 	Then the vote is closed
 	
 	
-Scenario: more than 50% 
+Scenario: more than 50% display the winner
 	Given following candidates
 	  | candidates |
 	  |	Charlie    |
@@ -31,7 +31,7 @@ Scenario: more than 50%
       | 5	  |
     And we have 30 voters
 	When a candidate obtains more than 50% of the votes
-	Then the candidate wins in the first round
+	Then the candidate wins at the first round
 	
 Scenario: second round
 	Given following candidates
@@ -47,3 +47,4 @@ Scenario: second round
    	And we have 30 voters
    	When any candidate obtains more than 50% of the votes
    	Then there is a second round
+	
