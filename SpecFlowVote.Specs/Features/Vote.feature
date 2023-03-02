@@ -75,11 +75,11 @@ Scenario: 2 round max
    When we count the final score
    Then the candidate with more votes win
    
-Scenario: Equality in round 2
+Scenario: Equality in round 2 with white vote
 	Given following candidates
 	  | candidates |
 	  |	Lucien    |
-	  |	Yoyo       |
+	  |	Joel       |
 	  |	Carla      |
 	And following votes
 	  | votes |
@@ -91,13 +91,17 @@ Scenario: Equality in round 2
    When the first round is passed we pass to the round 2
    Given following candidates
      | candidates |
-     |	Lucien   |
-     |	Yoyo      |
+     |	Lucien    |
+     |	Joel      |
+     | Blank      |	
+     
    And following votes
 	  | votes |
-	  | 15    |
-	  | 15    |
+	  | 14    |
+	  | 14    |
+	  | 2     |	
    And we have 30 voters
    When All voters have voted
    When we count the final score
    Then there is no winner if equality in votes
+   

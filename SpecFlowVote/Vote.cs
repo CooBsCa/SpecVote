@@ -21,9 +21,24 @@
          (String,int) looser = applications[0];
          (String, int) candidateA;
          (String, int) candidateB;
+         bool blankVote = false;
+         (String, int) blankVoteCandidate = ("",0);
+         String blank = "Blank";
          
          if (secondRound.Equals(false))
          {
+            applications.ForEach(x =>
+            {
+               if (x.Item1 == blank)
+               {
+                  blankVote = true;
+                  blankVoteCandidate = x;
+               }
+            });
+
+            if (blankVote == true)
+               applications.Remove(blankVoteCandidate);
+            
             applications.ForEach(x =>
             {
                if (x.Item2 < looser.Item2)
@@ -51,6 +66,18 @@
 
             return applications;
          }
+
+         applications.ForEach(x =>
+         {
+            if (x.Item1 == blank)
+            {
+               blankVote = true;
+               blankVoteCandidate = x;
+            }
+         });
+
+         if (blankVote == true)
+            applications.Remove(blankVoteCandidate);
          
          candidateA = applications[0];
          candidateB = applications[1];
