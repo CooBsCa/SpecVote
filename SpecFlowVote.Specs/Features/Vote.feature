@@ -32,3 +32,18 @@ Scenario: more than 50%
     And we have 30 voters
 	When a candidate obtains more than 50% of the votes
 	Then the candidate wins in the first round
+	
+Scenario: second round
+	Given following candidates
+	  | candidates |
+	  |	Charlie    |
+	  |	Yoan       |
+	  |	Carla      |
+	And following votes
+	  | votes |
+	  | 10    |
+	  | 10    |
+	  | 10    | 
+   	And we have 30 voters
+   	When any candidate obtains more than 50% of the votes
+   	Then there is a second round
